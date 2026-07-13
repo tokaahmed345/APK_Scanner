@@ -5,6 +5,20 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'APK Scanner',
+          style: TextStyle(color: Color(0xFF00FF41)),
+        ),
+        backgroundColor: const Color(0xFF1A1A1A),
+      ),
+      body: const Center(
+        child: Text(
+          'Welcome to APK Scanner',
+          style: TextStyle(color: Color(0xFF00FF41), fontSize: 20),
+        ),
+      ),
+    );
   }
 }
