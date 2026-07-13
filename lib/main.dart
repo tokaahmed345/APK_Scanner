@@ -1,3 +1,4 @@
+import 'package:apk_scanner/core/utils/colors/app_colors.dart';
 import 'package:apk_scanner/core/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MaterialApp.router(
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          scaffoldBackgroundColor: AppColors.darkSurface,
+        ),
+
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
       ),

@@ -1,4 +1,5 @@
 import 'package:apk_scanner/core/utils/router/routes_name.dart';
+import 'package:apk_scanner/core/utils/widgets/main_navigation_bottom.dart';
 import 'package:apk_scanner/feature/auth/presentation/login_view.dart';
 import 'package:apk_scanner/feature/auth/presentation/widgets/sign_up/register_view_body.dart';
 import 'package:apk_scanner/feature/auth/register_view.dart';
@@ -37,6 +38,11 @@ class AppRouter {
         path: RoutesName.signUp,
         name: RoutesName.signUp,
         builder: (context, state) => RegisterView(),
+      ),
+        GoRoute(
+        path: RoutesName.mainNavigation,
+        name: RoutesName.mainNavigation,
+        builder: (context, state) => MainNavigationScreen(),
       ),
     ],
   );
