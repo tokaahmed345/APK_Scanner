@@ -10,7 +10,7 @@ class CustomFormField extends StatelessWidget {
   final void Function()? onPressed;
   final IconData? suffixIcon;
   final bool
-  obscure; // قمنا بإزالة الـ Nullable لجعل الكود أكثر أماناً واستقراراً
+  obscure;
   final bool? enabled;
   final Color? fillColor;
   final Color? borderColor;
@@ -26,7 +26,7 @@ class CustomFormField extends StatelessWidget {
     this.validator,
     this.icon,
     this.suffixIcon,
-    this.obscure = false, // القيمة الافتراضية واضحة ومباشرة
+    this.obscure = false, 
     this.onPressed,
     this.enabled,
     this.fillColor,
@@ -38,7 +38,6 @@ class CustomFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // استخدام لون الـ Border الافتراضي من الـ Extension إذا لم يتم تمرير لون مخصص
     final effectiveBorderColor = borderColor ?? context.borderColor;
 
     return TextFormField(
@@ -50,14 +49,14 @@ class CustomFormField extends StatelessWidget {
       cursorColor: context.primaryColor,
       style: TextStyle(
         fontSize: 15,
-        color: context.primaryTextColor, // يعتمد على ثيم التطبيق الداكن
+        color: context.primaryTextColor, 
       ),
       decoration: InputDecoration(
         suffixIcon: suffixIcon != null
             ? IconButton(
                 icon: Icon(suffixIcon),
                 color: context
-                    .borderColor, // لون الأيقونات الجانبية المتناسق مع التصميم
+                    .borderColor, 
                 onPressed: onPressed,
               )
             : null,
@@ -69,17 +68,17 @@ class CustomFormField extends StatelessWidget {
             ? Icon(
                 icon,
                 color: context.borderColor,
-              ) // أيقونة الـ Email والـ Lock الأساسية
+              ) 
             : null,
         filled: true,
-        fillColor: fillColor ?? context.surfaceColor, // الخلفية الداكنة للحقل
+        fillColor: fillColor ?? context.surfaceColor, 
         contentPadding:
             contentPadding ??
             const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(
             radius ?? 12,
-          ), // تعديل الـ Radius لـ 12 ليطابق الصورة تماماً
+          ), 
           borderSide: BorderSide(color: effectiveBorderColor),
         ),
         border: OutlineInputBorder(
@@ -93,7 +92,7 @@ class CustomFormField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius ?? 12),
           borderSide: BorderSide(
-            color: context.primaryColor, // الأخضر الفوسفوري عند التركيز
+            color: context.primaryColor, 
             width: 1.5,
           ),
         ),

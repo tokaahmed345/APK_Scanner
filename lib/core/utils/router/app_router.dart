@@ -1,5 +1,7 @@
 import 'package:apk_scanner/core/utils/router/routes_name.dart';
 import 'package:apk_scanner/feature/auth/presentation/login_view.dart';
+import 'package:apk_scanner/feature/auth/presentation/widgets/sign_up/register_view_body.dart';
+import 'package:apk_scanner/feature/auth/register_view.dart';
 import 'package:apk_scanner/feature/splash/presentation/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -30,6 +32,11 @@ class AppRouter {
         path: RoutesName.login,
         name: RoutesName.login,
         builder: (context, state) => LoginView(),
+      ),
+       GoRoute(
+        path: RoutesName.signUp,
+        name: RoutesName.signUp,
+        builder: (context, state) => RegisterView(),
       ),
     ],
   );
