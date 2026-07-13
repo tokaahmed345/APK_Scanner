@@ -65,7 +65,7 @@ class AppStyle {
     color: AppColors.blackColor,
     fontSize: 16,
     fontWeight:
-        FontWeight.w900, // ✅ تم تعديلها هنا إلى FontWeight.w900 لحل المشكلة
+    FontWeight.w900, 
     letterSpacing: 1.5,
   );
 

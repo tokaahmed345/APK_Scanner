@@ -1,5 +1,6 @@
 import 'package:apk_scanner/core/utils/router/routes_name.dart';
-import 'package:flutter/material.dart';
+import 'package:apk_scanner/feature/auth/presentation/login_view.dart';
+import 'package:apk_scanner/feature/splash/presentation/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
@@ -23,9 +24,13 @@ class AppRouter {
       GoRoute(
         path: RoutesName.splash,
         name: RoutesName.splash,
-        builder: (context, state) => const SizedBox(),
+        builder: (context, state) => const SplashView(),
       ),
-
+      GoRoute(
+        path: RoutesName.login,
+        name: RoutesName.login,
+        builder: (context, state) => LoginView(),
+      ),
     ],
   );
 }
