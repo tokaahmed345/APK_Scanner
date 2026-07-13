@@ -25,7 +25,7 @@ class SplashViewBody extends StatelessWidget {
             const AppNameText(),
             const SizedBox(height: 8),
             Text(
-              'ANDROID SECURITY ANALYZER',
+              'APK SECURITY ANALYZER',
               style: AppStyle.authSectionTitle,
             ),
           ],
