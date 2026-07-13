@@ -27,48 +27,56 @@ class AppStyle {
     fontSize: 28,
   );
 
+  // ===== APKSCAN Auth Styles =====
+
   static final authLogo = _baseStyle.copyWith(
-    fontSize: 20,
+    color: AppColors.primary,
+    fontSize: 22,
     fontWeight: FontWeight.w800,
+    letterSpacing: 1.2,
   );
 
   static final authTitle = _baseStyle.copyWith(
-    color: AppColors.charcoal,
-    fontSize: 23,
-    fontWeight: FontWeight.w800,
+    color: AppColors.whiteColor,
+    fontSize: 28,
+    fontWeight: FontWeight.w700,
   );
 
   static final authSubtitle = _baseStyle.copyWith(
-    color: AppColors.secondary,
-    fontSize: 13,
+    color: AppColors.textHint,
+    fontSize: 14,
     fontWeight: FontWeight.w500,
   );
 
   static final authSectionTitle = _baseStyle.copyWith(
-    color: AppColors.charcoal,
-    fontSize: 15,
+    color: AppColors.textHint,
+    fontSize: 12,
     fontWeight: FontWeight.w700,
+    letterSpacing: 1.2,
   );
 
   static final authFieldHint = _baseStyle.copyWith(
-    color: AppColors.secondary,
+    color: AppColors.textHint,
     fontSize: 12,
     fontWeight: FontWeight.w600,
   );
 
   static final authButtonText = _baseStyle.copyWith(
-    fontSize: 14,
-    fontWeight: FontWeight.w700,
+    color: AppColors.blackColor,
+    fontSize: 16,
+    fontWeight:
+        FontWeight.w900, // ✅ تم تعديلها هنا إلى FontWeight.w900 لحل المشكلة
+    letterSpacing: 1.5,
   );
 
   static final authSmallText = _baseStyle.copyWith(
-    color: AppColors.secondary,
-    fontSize: 12,
+    color: AppColors.textHint,
+    fontSize: 14,
     fontWeight: FontWeight.w500,
   );
 
   static final authTermsText = _baseStyle.copyWith(
-    color: AppColors.secondary,
+    color: AppColors.textHint,
     fontSize: 11,
     height: 1.6,
     fontWeight: FontWeight.w500,
@@ -77,16 +85,17 @@ class AppStyle {
   static final authLinkText = _baseStyle.copyWith(
     color: AppColors.primary,
     fontWeight: FontWeight.w800,
+    fontSize: 14,
   );
 
   static final authSmallLinkText = _baseStyle.copyWith(
-    color: AppColors.primary,
-    fontSize: 11,
+    color: AppColors.textHint,
+    fontSize: 13,
     fontWeight: FontWeight.w700,
   );
 
   static final authInfoText = _baseStyle.copyWith(
-    color: AppColors.charcoal,
+    color: AppColors.whiteColor,
     fontSize: 12,
     height: 1.5,
     fontWeight: FontWeight.w600,
