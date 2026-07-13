@@ -7,17 +7,12 @@ abstract class AppColors {
   static const Color transparent = Colors.transparent;
   static const Color whiteColor70 = Colors.white70;
 
-  // ===== Brand colors (Decora) =====
-  static const Color primary = Color(0xFFD56E49); 
-  static const Color primaryDark = Color(0xFFB55D3E);
-  static const Color secondary = Color(0xFF8FA68E); 
-  static const Color accentGold = Color(0xFFD4A857); 
-static const Color warmBeige = Color.fromARGB(255, 227, 180, 147); 
-
-  // ===== Text / surfaces =====
-  static const Color charcoal = Color(0xFF2B2622); 
-  static const Color lightBackground = Color(0xFFFBF7F2); 
-  static const Color tipsBackground = Color(0xFFF3E9DD); 
+  // ===== Brand colors (APKSCAN Tech Dark) =====
+  static const Color primary = Color(0xFF00FF41); // الأخضر الفوسفوري الفاقع
+  static const Color primaryDark = Color(0xFF00C832); // أخضر داكن
+  static const Color textHint = Color(
+    0xFF666666,
+  ); // الرمادي الهادئ للتلميحات والنصوص الفرعية
 
   // ===== Status colors =====
   static const Color redColor = Colors.red;
@@ -25,40 +20,32 @@ static const Color warmBeige = Color.fromARGB(255, 227, 180, 147);
   static const Color greyColor = Colors.grey;
 
   // ===== Dark mode variants =====
-  static const Color darkBackground = Color(0xFF1E1A17);
-  static const Color darkSurface = Color(0xFF2B241F);
+  static const Color darkBackground = Color(
+    0xFF121212,
+  ); // الخلفية الداكنة للتطبيق
+  static const Color darkSurface = Color(0xFF1E1E1E); // خلفية الحقول
+  static const Color darkBorder = Color(
+    0xFF222C24,
+  ); // حدود الحقول الرمادية المخضرة
 }
 
 extension AppColorsExtension on BuildContext {
   bool get _isDark => Theme.of(this).brightness == Brightness.dark;
 
   Color get backgroundColor =>
-      _isDark ? AppColors.darkBackground : AppColors.lightBackground;
+      _isDark ? AppColors.darkBackground : const Color(0xFFFBF7F2);
 
   Color get surfaceColor =>
       _isDark ? AppColors.darkSurface : AppColors.whiteColor;
 
   Color get primaryTextColor =>
-      _isDark ? const Color(0xFFEFE6DD) : AppColors.charcoal;
+      _isDark ? AppColors.whiteColor : const Color(0xFF2B2622);
 
   Color get secondaryTextColor =>
-      _isDark ? const Color(0xFFB8AFA6) : const Color(0xFF6B6258);
+      _isDark ? AppColors.textHint : const Color(0xFF6B6258);
 
-  Color get primaryColor =>
-      _isDark ? const Color(0xFFDC8869) : AppColors.primary;
-
-  Color get secondaryColor =>
-      _isDark ? const Color(0xFFA3B8A2) : AppColors.secondary;
-
-  Color get accentColor =>
-      _isDark ? const Color(0xFFE0BC78) : AppColors.accentGold;
-
-  Color get tipsBackgroundColor =>
-      _isDark ? const Color(0xFF3A2E26) : AppColors.tipsBackground;
-
-  Color get greyColor =>
-      _isDark ? Colors.grey[400]! : Colors.grey[600]!;
+  Color get primaryColor => _isDark ? AppColors.primary : AppColors.primaryDark;
 
   Color get borderColor =>
-      _isDark ? const Color(0xFF453A32) : const Color(0xFFEAD9C8);
+      _isDark ? AppColors.darkBorder : const Color(0xFFEAD9C8);
 }
