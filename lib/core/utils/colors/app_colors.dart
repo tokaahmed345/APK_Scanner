@@ -8,25 +8,18 @@ abstract class AppColors {
   static const Color whiteColor70 = Colors.white70;
 
   // ===== Brand colors (APKSCAN Tech Dark) =====
-  static const Color primary = Color(0xFF00FF41); // الأخضر الفوسفوري الفاقع
-  static const Color primaryDark = Color(0xFF00C832); // أخضر داكن
-  static const Color textHint = Color(
-    0xFF666666,
-  ); // الرمادي الهادئ للتلميحات والنصوص الفرعية
-
+  static const Color primary = Color(0xFF00FF41);
+  static const Color primaryDark = Color(0xFF00C832);
+  static const Color textHint = Color(0xFF666666);
   // ===== Status colors =====
   static const Color redColor = Colors.red;
   static const Color greenColor = Colors.green;
   static const Color greyColor = Colors.grey;
 
   // ===== Dark mode variants =====
-  static const Color darkBackground = Color(
-    0xFF121212,
-  ); // الخلفية الداكنة للتطبيق
-  static const Color darkSurface = Color(0xFF1E1E1E); // خلفية الحقول
-  static const Color darkBorder = Color(
-    0xFF222C24,
-  ); // حدود الحقول الرمادية المخضرة
+  static const Color darkBackground = Color(0xFF121212);
+  static const Color darkSurface = Color(0xFF1E1E1E);
+  static const Color darkBorder = Color(0xFF222C24);
 }
 
 extension AppColorsExtension on BuildContext {
