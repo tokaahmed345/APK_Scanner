@@ -6,13 +6,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(body: SafeArea(child: HomeViewBody()));
   }
-}
-
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    body: SafeArea(child: HomeViewBody()),
-  );
 }
