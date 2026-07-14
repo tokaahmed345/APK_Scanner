@@ -41,10 +41,9 @@ class _RegisterFormFieldsState extends State<RegisterFormFields> {
         const Text('FULL NAME'),
         const SizedBox(height: 8),
         CustomFormField(
-          fillColor: AppColors.darkBorder,
+          fillColor: AppColors.fillColor,
           controller: widget.nameController,
           hint: 'Alex Johnson',
-          borderColor: AppColors.greenColor,
 
           icon: Icons.person_outline,
           keyboardType: TextInputType.name,
@@ -55,8 +54,7 @@ class _RegisterFormFieldsState extends State<RegisterFormFields> {
         const Text('EMAIL'),
         const SizedBox(height: 8),
         CustomFormField(
-          fillColor: AppColors.darkBorder,
-          borderColor: AppColors.greenColor,
+          fillColor: AppColors.fillColor,
           controller: widget.emailController,
           hint: 'alex@security.io',
           icon: Icons.mail_outline,
@@ -68,8 +66,7 @@ class _RegisterFormFieldsState extends State<RegisterFormFields> {
         const Text('PASSWORD'),
         const SizedBox(height: 8),
         CustomFormField(
-          fillColor: AppColors.darkBorder,
-          borderColor: AppColors.greenColor,
+          fillColor: AppColors.fillColor,
 
           controller: widget.passwordController,
           hint: 'Min.8 characters',
@@ -86,13 +83,11 @@ class _RegisterFormFieldsState extends State<RegisterFormFields> {
         const Text('CONFIRM PASSWORD'),
         const SizedBox(height: 8),
         CustomFormField(
-          fillColor: AppColors.darkBorder,
-          borderColor: AppColors.greenColor,
-
+          fillColor: AppColors.fillColor,
           controller: widget.confirmPasswordController,
           hint: 'Repeat password',
           icon: Icons.lock_outline,
-        
+
           obscure: _obscureConfirmPassword,
           suffixIcon: _obscureConfirmPassword
               ? Icons.visibility_outlined

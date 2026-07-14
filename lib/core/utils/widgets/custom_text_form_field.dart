@@ -41,8 +41,6 @@ class CustomFormField extends StatelessWidget {
         fontSize: 15,
         color: context.primaryTextColor, 
       ),
-      // الـ Style الأساسي للكتابة جوه الحقل - إجبار اللون الأبيض
-      style: TextStyle(color: textColor, fontSize: 15),
       decoration: InputDecoration(
         filled: true,
         fillColor: fillColor,

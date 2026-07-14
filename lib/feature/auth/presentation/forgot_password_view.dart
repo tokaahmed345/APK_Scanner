@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../core/utils/colors/app_colors.dart';
 import 'widgets/forgot_password_view_body.dart';
 
 class ForgotPasswordView extends StatelessWidget {
@@ -8,7 +7,6 @@ class ForgotPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: AppColors.darkBackground,
       body: SafeArea(child: ForgotPasswordViewBody()),
     );
   }

@@ -1,9 +1,11 @@
 import 'package:apk_scanner/core/utils/colors/app_colors.dart';
+import 'package:apk_scanner/core/utils/function/validators.dart';
+import 'package:apk_scanner/core/utils/router/routes_name.dart';
 import 'package:apk_scanner/core/utils/widgets/custom_elevated_button.dart';
 import 'package:apk_scanner/core/utils/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../forgot_password_view.dart';
-import '../../../home/presentation/home_view.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -86,18 +88,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               hint: 'researcher@sec.io',
               icon: Icons.email_outlined,
               keyboardType: TextInputType.emailAddress,
-              fillColor: const Color(0xFF151515),
+              fillColor: AppColors.fillColor,
               borderColor: const Color(0xFF222222),
-              validator: (value) {
-                if (value == null || value.trim().isEmpty) {
-                  return 'Please enter your email';
-                }
-                final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-                if (!emailRegExp.hasMatch(value)) {
-                  return 'Please enter a valid email address';
-                }
-                return null;
-              },
+              validator: (value) => Validators.emailValidator(value),
             ),
             const SizedBox(height: 24),
 
@@ -117,7 +110,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               hint: '••••••••••••',
               obscure: _isObscure,
               icon: Icons.lock_outline,
-              fillColor: const Color(0xFF151515),
+              fillColor: AppColors.fillColor,
               borderColor: const Color(0xFF222222),
               suffixIcon: _isObscure
                   ? Icons.visibility_outlined
@@ -127,15 +120,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   _isObscure = !_isObscure;
                 });
               },
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your password';
-                }
-                if (value.length < 6) {
-                  return 'Password must be at least 6 characters';
-                }
-                return null;
-              },
+              validator: (value) => Validators.passwordValidator(value),
             ),
 
             // ===== FORGOT PASSWORD =====
@@ -176,10 +161,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               ),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomeView()),
-                  );
+                  GoRouter.of(context).push(RoutesName.mainNavigation);
                 }
               },
             ),
@@ -194,7 +176,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   style: TextStyle(color: AppColors.textHint, fontSize: 14),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    GoRouter.of(context).push(RoutesName.signUp);
+                  },
                   child: const Text(
                     'Sign Up',
                     style: TextStyle(

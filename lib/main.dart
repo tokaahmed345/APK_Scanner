@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           scaffoldBackgroundColor: AppColors.darkSurface,
         ),
-
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
       ),

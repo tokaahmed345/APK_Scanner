@@ -79,7 +79,6 @@ class HomeViewBody extends StatelessWidget {
 
           // ===== RECENT SCANS TITLE =====
           Row(
-            // التعديل هنا: التسمية الصحيحة في فلاتر هي spaceBetween بحرف كابيتال في النص
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
