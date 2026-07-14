@@ -1,6 +1,7 @@
 import 'package:apk_scanner/core/utils/colors/app_colors.dart';
 import 'package:apk_scanner/feature/apk_scanner/presentation/widgets/apk_scanner_view_body.dart';
 import 'package:apk_scanner/feature/profile/presentation/profile_view.dart';
+import 'package:apk_scanner/feature/report/presentation/full_report_view.dart';
 
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const Placeholder(),
     const ApkScannerViewBody(),
 
-    const Placeholder(),
+    const FullReportView(),
     const ProfileView(),
   ];
 
