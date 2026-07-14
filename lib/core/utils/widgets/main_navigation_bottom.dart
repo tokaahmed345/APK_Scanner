@@ -1,4 +1,5 @@
 import 'package:apk_scanner/core/utils/colors/app_colors.dart';
+import 'package:apk_scanner/feature/apk_scanner/presentation/widgets/apk_scanner_view_body.dart';
 import 'package:apk_scanner/feature/profile/presentation/profile_view.dart';
 
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   late final List<Widget> _pages = [
     const Placeholder(),
-    const Placeholder(),
+    const ApkScannerViewBody(),
 
     const Placeholder(),
     const ProfileView(),
