@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "52194306568",
+    "project_id": "apk-scanner-f00c7",
+    "storage_bucket": "apk-scanner-f00c7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52194306568:android:91047c8729f79b10ce3fbd",
+        "android_client_info": {
+          "package_name": "com.example.apk_scanner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTyJY0sd6G6ErepMZd-ySNjleGrFYPbh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
