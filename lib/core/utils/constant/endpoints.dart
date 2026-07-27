@@ -1,10 +1,9 @@
-// import 'package:flutter_dotenv/flutter_dotenv.dart';
-
 class EndPoints {
+  // شغال على الموبايل الحقيقي والـ Emulator طالما الكابل متوصل!
+  static const String baseUrl = "http://localhost:5000";
 
-    static const String baseUrl = "https://generativelanguage.googleapis.com/v1beta/models";
+  static const String scanEndpoint = "$baseUrl/scan";
 
-  // static String get apiKey => dotenv.env['GEMINI_API_KEY'] ?? '';
-
-
+  static String pdfReportEndpoint(String scanId) =>
+      "$baseUrl/report/$scanId/pdf";
 }
