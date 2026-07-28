@@ -82,8 +82,10 @@
 // }
 
 import 'dart:io';
+
 import 'package:apk_scanner/core/utils/colors/app_colors.dart';
 import 'package:apk_scanner/core/utils/service_locator/service_locator.dart';
+import 'package:apk_scanner/feature/apk_scanner/domain/entity/scan_entity.dart';
 import 'package:apk_scanner/feature/apk_scanner/presentation/cubit/scan_cubit.dart';
 import 'package:apk_scanner/feature/apk_scanner/presentation/widgets/apk_scanner_view_body.dart';
 import 'package:apk_scanner/feature/home/presentation/home_view.dart';
@@ -106,19 +108,22 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int currentIndex = 0;
   File? uploadedFile;
   bool isScanCompleted = false;
+  ScanEntity? scanResult;
 
   void navigateToScan(File file) {
     setState(() {
       uploadedFile = file;
       isScanCompleted = false;
+      scanResult = null;
       currentIndex = 1;
     });
   }
 
-  void navigateToReport() {
+  void navigateToReport(ScanEntity scan) {
     setState(() {
+      scanResult = scan;
       isScanCompleted = true;
-      currentIndex = 2; 
+      currentIndex = 2;
     });
   }
 
@@ -127,17 +132,16 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     List<Widget> pages = [
       const HomeView(),
       ApkScannerViewBody(selectedFile: uploadedFile),
-      const FullReportView(),
+      scanResult != null
+          ? FullReportView(scanData: scanResult!)
+          : const SizedBox.shrink(),
       const ProfileView(),
     ];
 
     return BlocProvider<ApkScannerCubit>(
       create: (context) => getIt.get<ApkScannerCubit>(),
       child: Scaffold(
-        body: IndexedStack(
-          index: currentIndex,
-          children: pages,
-        ),
+        body: IndexedStack(index: currentIndex, children: pages),
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(
             color: AppColors.darkSurface,

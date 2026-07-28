@@ -1,5 +1,3 @@
-
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:apk_scanner/core/utils/colors/app_colors.dart';
@@ -11,7 +9,8 @@ class DynamicScanProgressWidget extends StatefulWidget {
   const DynamicScanProgressWidget({super.key, required this.isCompleted});
 
   @override
-  State<DynamicScanProgressWidget> createState() => _DynamicScanProgressWidgetState();
+  State<DynamicScanProgressWidget> createState() =>
+      _DynamicScanProgressWidgetState();
 }
 
 class _DynamicScanProgressWidgetState extends State<DynamicScanProgressWidget> {
@@ -38,7 +37,7 @@ class _DynamicScanProgressWidgetState extends State<DynamicScanProgressWidget> {
   }
 
   void _startAnimation() {
-    _timer = Timer.periodic(const Duration(milliseconds: 1800), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 6), (timer) {
       if (currentStep < steps.length - 1) {
         setState(() {
           currentStep++;
@@ -55,7 +54,7 @@ class _DynamicScanProgressWidgetState extends State<DynamicScanProgressWidget> {
     if (widget.isCompleted) {
       _timer?.cancel();
       setState(() {
-        currentStep = steps.length; 
+        currentStep = steps.length;
       });
     }
   }
@@ -121,14 +120,19 @@ class _DynamicScanProgressWidgetState extends State<DynamicScanProgressWidget> {
                 itemCount: steps.length,
                 itemBuilder: (context, index) {
                   bool isDone = widget.isCompleted || index < currentStep;
-                  bool isInProgress = !widget.isCompleted && index == currentStep;
+                  bool isInProgress =
+                      !widget.isCompleted && index == currentStep;
 
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 12.0),
                     child: Row(
                       children: [
                         if (isDone)
-                          const Icon(Icons.check_circle, color: AppColors.primary, size: 20)
+                          const Icon(
+                            Icons.check_circle,
+                            color: AppColors.primary,
+                            size: 20,
+                          )
                         else if (isInProgress)
                           const SizedBox(
                             width: 18,
@@ -143,13 +147,16 @@ class _DynamicScanProgressWidgetState extends State<DynamicScanProgressWidget> {
 
                         const SizedBox(width: 12),
 
-                        // نص الخطوة
                         Expanded(
                           child: Text(
                             steps[index],
                             style: TextStyle(
-                              color: isDone || isInProgress ? Colors.white : Colors.grey[600],
-                              fontWeight: isInProgress ? FontWeight.bold : FontWeight.normal,
+                              color: isDone || isInProgress
+                                  ? Colors.white
+                                  : Colors.grey[600],
+                              fontWeight: isInProgress
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
                               fontSize: 14,
                             ),
                           ),

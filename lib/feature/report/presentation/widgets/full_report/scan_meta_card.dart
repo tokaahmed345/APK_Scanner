@@ -1,10 +1,12 @@
-
+import 'package:flutter/material.dart';
 import 'package:apk_scanner/core/utils/colors/app_colors.dart';
 import 'package:apk_scanner/core/utils/styles/app_style.dart';
-import 'package:flutter/material.dart';
+import 'package:apk_scanner/feature/apk_scanner/domain/entity/scan_entity.dart';
 
 class ScanMetadataCard extends StatelessWidget {
-  const ScanMetadataCard({super.key});
+  final ScanEntity scanData;
+
+  const ScanMetadataCard({super.key, required this.scanData});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class ScanMetadataCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.darkSurface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppColors.darkBorder),
+        border: Border.all(color: Colors.white12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,16 +26,13 @@ class ScanMetadataCard extends StatelessWidget {
             style: AppStyle.authSectionTitle,
           ),
           const SizedBox(height: 14),
-          const _MetadataRow(label: 'Package', value: 'com.banking.myapp'),
-          const _MetadataRow(label: 'Version', value: '2.3.1 (build 231)'),
-          const _MetadataRow(label: 'Target SDK', value: '33 (Android 13)'),
-          const _MetadataRow(label: 'Min SDK', value: '16 (Android 4.1)'),
-          const _MetadataRow(label: 'File Size', value: '18.4 MB'),
-          const _MetadataRow(
-            label: 'SHA-256',
-            value: 'a3f9c2...d84e1b',
-            isLast: true,
+          _MetadataRow(label: 'Package Name', value: scanData.packageName),
+          _MetadataRow(
+            label: 'Version', 
+            value: '${scanData.versionName} (Build ${scanData.versionCode})',
           ),
+          _MetadataRow(label: 'Target SDK', value: scanData.targetSdk),
+          _MetadataRow(label: 'Min SDK', value: scanData.minSdk, isLast: true),
         ],
       ),
     );
@@ -54,20 +53,25 @@ class _MetadataRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: isLast ? 0 : 12),
+      padding: EdgeInsets.only(bottom: isLast ? 0 : 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             label,
-            style: AppStyle.text16.copyWith(
-              color: AppColors.textHint,
-              fontWeight: FontWeight.w400,
-            ),
+            style: const TextStyle(color: AppColors.greyColor, fontSize: 13),
           ),
-          Text(
-            value,
-            style: AppStyle.text16,
+          Expanded(
+            child: Text(
+              value,
+              textAlign: TextAlign.end,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                color: AppColors.whiteColor,
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
         ],
       ),

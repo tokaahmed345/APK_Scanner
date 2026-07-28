@@ -11,6 +11,8 @@ abstract class AppColors {
   static const Color primary = Color(0xFF00FF41);
   static const Color primaryDark = Color(0xFF00C832);
   static const Color textHint = Color(0xFF666666);
+  static const Color orange = Colors.orangeAccent;
+  static const Color yellow = Colors.yellowAccent;
 
   // ===== Status colors =====
   static const Color redColor = Colors.red;

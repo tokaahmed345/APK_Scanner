@@ -71,7 +71,7 @@ class _ApkScannerViewBodyState extends State<ApkScannerViewBody> {
 
           Future.delayed(const Duration(milliseconds: 1200), () {
             if (context.mounted) {
-              MainNavigationScreen.of(context)?.navigateToReport();
+              MainNavigationScreen.of(context)?.navigateToReport(state.scan);
             }
           });
         }
